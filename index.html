@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body {
+        background-color: #81d8e2;
+    }
+
+    .main1 {
+        position: fixed;
+        left: 50%;
+    }
+
+    #day {
+        text-align: center;
+        color: #e23b32;
+    }
+</style>
+<body>
+<div class="main1">
+    <h1>倒数计时</h1>
+    <h2 id="day"></h2>
+</div>
+</body>
+<script>
+    var now = Date.parse(new Date()) / 1000;
+    var dt = new Date("2021/1/31 00:00:00");
+    var deadline = dt.getTime() / 1000;
+
+    if (now > deadline) {
+        document.getElementById("day").innerHTML = "OVER!";
+    } else {
+        var day = (deadline - now) / 86400;
+        document.getElementById("day").innerHTML = Math.floor(day) + " 天";
+    }
+</script>
+</html>
